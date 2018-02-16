@@ -1,36 +1,124 @@
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500">Welcome to Looker</h1>
-<p style="font-weight: 300">
-Your environment of Looker comes pre-loaded with a sample database connection, data model, and demo dashboards. You can also connect Looker to your own database to build out your own testing and demo environments.
-</p>
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500">Sample Demo Environment: TheLook</h1>
-<p style="font-weight: 300">
-TheLook is a simulated e-commerce store that sells clothing for men and women. The demo environment provides sample entry-points to Looker's three main workflows:
-</p>
-<p style="font-weight: 300">
-<strong><a href = "/dashboards/thelook/1_business_pulse" style="text-decoration:underline">The Business Pulse Dashboard</a></strong> provides a highly manicured executive summary of the current status of the business. Interactive filtering and drilling within the dashbaord provide a curated, interactive experience for users with limited data skills to ask and answer questions based on patterns and trends in the data in real time.
- </p>
- <p style="font-weight: 300">
- <strong><a href = "/explore/thelook/order_items" style="text-decoration:underline">Looker's explore section</a></strong> provides an easy-to-use, flexible interface for self-service exploration to answer any question from your data without having to involve IT. Regardless of their level of SQL knowledge, analysts and business users alike have the power and depth of the entire database at their fingertips to easily answer ad-hoc questions and quickly build visualizations, dashbaords, and automated reports. Looker's 100% browser based workflow enables fast and easy collaboration and sharing.
-</p>
-<p style="font-weight: 300">
-<strong><a href = "/projects/welcome_to_looker/files/thelook.model.lkml" style="text-decoration:underline">The LookML data model</a></strong> is the backbone of Looker, providing a platform to define key metrics once, in one place, so people from across the organization combine them in any number of ways, anytime.
-</p>
+<div class="container" style="max-width:800px;text-align:left;color:#6d5b90">
+<h1>Welcome to your Looker Partner Instance!</h1>
 
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500">Connecting to your own data set</h1>
+  <div class="col-sm-6"><h3>Do!</h3></div>
+  <div class="col-sm-6"><p>What happens if i kke on tyiping what will theis do aln asdf  asdfasdf
+  aasdfasdfasdfasdfaasdfasdf  asd s s dfa sdfasdas s s as dafasdfsd as dfas df asdf as d asd sdf a
 
-<p style="font-weight: 300">
-Looker can connect to any SQL-compliant database for you to build out a demo environment of your own, or build proof-of-concept analyses for your customers.
-</p>
-
-<p style="font-weight: 300">
-<strong>1.</strong> Connect to your database follow the instructions <a href = "http://www.looker.com/docs/admin/looker-hosted" style="text-decoration:underline">here</a> to establish a connection between Looker and your database
-</p>
-
-<p style="font-weight: 300">
-<strong>2.</strong> Create a new LookML project using the LookML generator. Instructions <a href = "http://www.looker.com/docs/data-modeling/getting-started/connect-to-db-and-generate-model" style="text-decoration:underline">here</a>
-</p>
+   </p></div>
+    <a href="/admin/connections" target="_blank">
+        <img src="https://github.com/claytonlooker/demo_content/blob/master/Explore130x110.png?raw=true">
+    </a>
 
 
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500"><strong>Next: </h1>
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500"><a href = "/stories/welcome_to_looker/2_lookml_101.md" style="text-decoration:underline">Looker 101 - Developing with LookML</strong><a></h1>
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500"><a href = "/stories/welcome_to_looker/3_business_analyst_101.md" style="text-decoration:underline">Exploration, Visualizations, and Dashboards</strong><a></h1>
+  </div>
+  <div class="col-sm-6">Learn!</div>
+  <div class="col-sm-6">
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<a href="/admin/connections" target="_blank">
+        <img src="https://github.com/claytonlooker/demo_content/blob/master/Explore130x110.png?raw=true">
+      </a>
+</div>
+
+<div class="band" style="margin:0 0 2rem 0;padding-bottom:25px">
+  <div class="container" style="max-width:800px;">
+    <div style="float:left;">
+      <a href="https://discourse.looker.com/t/videos-on-how-to-use-looker/5429">
+        <span class="fa fa-eye fa-fw" style="font-size:7em;color:#8D7FB9;margin-top:2.25rem;"></span>
+      </a>
+    </div>
+
+    <div style="max-width:600px;margin-top:25px">
+      <h3><a href="https://discourse.looker.com/t/videos-on-how-to-use-looker/5429" style="color:#8D7FB9;" target="_blank">Videos</a></h3>
+      <div style="font-size:1.35rem;">
+        If you want to watch our video tutorials, <a href="https://discourse.looker.com/t/videos-on-how-to-use-looker/5429" target="_blank">start here</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<div class="band" style="margin:0 0 2rem 0;padding-bottom:10px">
+  <div class="container" style="max-width:800px;">
+    <div style="float:left;">
+      <a href="https://docs.looker.com/setup-and-management">
+        <span class="fa fa-gears fa-fw" style="font-size:7em;color:#494C52;margin-top:2.25rem;"></span>
+      </a>
+    </div>
+
+    <div style="max-width:600px;margin-top:25px">
+      <h3><a href="https://docs.looker.com/setup-and-management" style="color:#494C52;" target="_blank">Setup</a></h3>
+      <div style="font-size:1.35rem;">
+        If you need to setup a Looker instance or configure your database to work with Looker, <a href="https://docs.looker.com/setup-and-management" target="_blank">start here</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<div class="band" style="margin:0 0 2rem 0;padding-bottom:40px">
+  <div class="container" style="max-width:800px;">
+    <div style="float:left;">
+      <a href="https://docs.looker.com/admin-options">
+        <span class="fa fa-database fa-fw" style="font-size:7em;color:#7F7977;margin-top:2.25rem;"></span>
+      </a>
+    </div>
+
+    <div style="max-width:600px;margin-top:25px">
+      <h3><a href="https://docs.looker.com/admin-options" style="color:#7F7977;" target="_blank">Administer</a></h3>
+      <div style="font-size:1.35rem;">
+        If you need to change Looker settings, monitor Looker, manage users, or add database connections, <a href="https://docs.looker.com/admin-options" target="_blank">start here</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<div class="band" style="margin:0 0 2rem 0;padding-bottom:35px">
+  <div class="container" style="max-width:800px;">
+    <div style="float:left;">
+      <a href="https://docs.looker.com/data-modeling">
+        <span class="fa fa-code fa-fw" style="font-size:7em;color:#57BEBE;margin-top:2.25rem;"></span>
+      </a>
+    </div>
+
+    <div style="max-width:600px;margin-top:25px">
+      <h3><a href="https://docs.looker.com/data-modeling" style="color:#57BEBE;" target="_blank">Develop</a></h3>
+      <div style="font-size:1.35rem;">
+        If you need to learn how to write or manage LookML, Looker’s data modeling language, <a href="https://docs.looker.com/data-modeling" target="_blank">start here</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<div class="band" style="margin:0 0 2rem 0;padding-bottom:25px">
+  <div class="container" style="max-width:800px;">
+    <div style="float:left;">
+      <a href="https://docs.looker.com/exploring-data" target="_blank">
+        <img src="https://github.com/claytonlooker/demo_content/blob/master/Explore130x110.png?raw=true">
+      </a>
+    </div>
+
+    <div style="max-width:600px;margin-top:25px">
+      <h3><a href="https://docs.looker.com/exploring-data" style="color:#20A5DE;" target="_blank">Explore</a></h3>
+      <div style="font-size:1.35rem;">
+        If you need to learn how to explore your data to create reports, charts, and dashboards, <a href="https://docs.looker.com/exploring-data" target="_blank">start here</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<div style="float:left;">
+  <a href="https://lpn.looker.com/s/">
+  <img src="https://lpn.looker.com/resource/1488453109000/PartnerCommunityResource/images/Partner_Network_Zealous.jpeg" height="82" width = "400"></img>
+  </a>
+</div>
+
+</div>

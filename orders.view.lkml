@@ -11,7 +11,7 @@ view: orders {
 
   dimension_group: created {
     type: time
-    timeframes: [time, date, week, month, month_num, month_name,year, day_of_week_index, hour_of_day, minute5]
+    timeframes: [time, date, week, month, month_num, month_name,year, day_of_week_index, hour_of_day, minute5, quarter]
     sql: ${TABLE}.created_at ;;
   }
 
