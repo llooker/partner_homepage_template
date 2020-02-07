@@ -13,7 +13,7 @@ TheLook is a simulated e-commerce store that sells clothing for men and women. T
  <strong><a href = "/explore/thelook/order_items" style="text-decoration:underline">Looker's explore section</a></strong> provides an easy-to-use, flexible interface for self-service exploration to answer any question from your data without having to involve IT. Regardless of their level of SQL knowledge, analysts and business users alike have the power and depth of the entire database at their fingertips to easily answer ad-hoc questions and quickly build visualizations, dashbaords, and automated reports. Looker's 100% browser based workflow enables fast and easy collaboration and sharing.
 </p>
 <p style="font-weight: 300">
-<strong><a href = "/projects/welcome_to_looker/files/thelook.model.lkml" style="text-decoration:underline">The LookML data model</a></strong> is the backbone of Looker, providing a platform to define key metrics once, in one place, so people from across the organization combine them in any number of ways, anytime.
+<strong><a href = "/projects/welcome_to_looker/files/models/thelook.model.lkml" style="text-decoration:underline">The LookML data model</a></strong> is the backbone of Looker, providing a platform to define key metrics once, in one place, so people from across the organization combine them in any number of ways, anytime.
 </p>
 
 <h1 style="padding-bottom:0px;color:#76678b;font-weight:500">Connecting to your own data set</h1>
