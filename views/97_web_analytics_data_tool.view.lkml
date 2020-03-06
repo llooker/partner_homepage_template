@@ -1,4 +1,4 @@
-include: "*.view" # include all the views
+include: "/views/*.view" # include all the views
 
 
 ########################################################################################

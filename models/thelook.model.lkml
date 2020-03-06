@@ -2,8 +2,8 @@ connection: "snowlooker"
 label: "1) eCommerce with Event Data"
 
 
-include: "*.view" # include all the views
-include: "*.dashboard" # include all the dashboards
+include: "/views/*.view" # include all the views
+include: "/dashboards/*.dashboard" # include all the dashboards
 
 datagroup: ecommerce_etl {
   ### Datagroups Allow you to sync cache and Persisted Derived Tables to events like ETL
