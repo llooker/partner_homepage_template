@@ -75,12 +75,12 @@ view: users {
         type: textarea
         required: yes
         default:
-                "Dear {{ users.first_name._value }},
+        "Dear {{ users.first_name._value }},
 
-                 Thanks for your loyalty to the Look.  We'd like to offer you a 10% discount
-                 on your next purchase!  Just use the code LOYAL when checking out!
+        Thanks for your loyalty to the Look.  We'd like to offer you a 10% discount
+        on your next purchase!  Just use the code LOYAL when checking out!
 
-                 Your friends at the Look"
+        Your friends at the Look"
       }
     }
     required_fields: [name, first_name]
@@ -89,7 +89,7 @@ view: users {
   dimension: image_file {
     hidden: yes
     sql: ('https://randomuser.me/api/portraits/' || CASE WHEN ${gender_short} = 'm' THEN 'men' ELSE 'women' END || '/' || RIGHT(${id},1) || '.jpg' ) ;;
-    }
+  }
 
   ## Demographics ##
 

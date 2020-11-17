@@ -106,7 +106,7 @@ view: cohort_size {
     type: string
     sql: ${TABLE}.cohort ;;
     label_from_parameter: cohort_filter
-    }
+  }
 
   measure: metric {
     type: number

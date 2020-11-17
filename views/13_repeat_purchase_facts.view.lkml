@@ -1,17 +1,18 @@
 view: repeat_purchase_facts {
   derived_table: {
+    datagroup_trigger: ecommerce_etl
     sql: SELECT
-        order_items.order_id
-        , COUNT(DISTINCT repeat_order_items.id) AS number_subsequent_orders
-        , MIN(repeat_order_items.created_at) AS next_order_date
-        , MIN(repeat_order_items.order_id) AS next_order_id
-      FROM order_items
-      LEFT JOIN order_items repeat_order_items
-        ON order_items.user_id = repeat_order_items.user_id
-        AND order_items.created_at < repeat_order_items.created_at
-      GROUP BY 1
-       ;;
-    persist_for: "24 hours"  ## Best practice would be to use `datagroup_trigger: ecommerce_etl` but we don't here for snowflake costs
+      order_items.order_id as order_id
+      , order_items.created_at
+      , COUNT(DISTINCT repeat_order_items.id) AS number_subsequent_orders
+      , MIN(repeat_order_items.created_at) AS next_order_date
+      , MIN(repeat_order_items.order_id) AS next_order_id
+    FROM order_items as order_items
+    LEFT JOIN order_items repeat_order_items
+      ON order_items.user_id = repeat_order_items.user_id
+      AND order_items.created_at < repeat_order_items.created_at
+    GROUP BY 1, 2
+     ;;
   }
 
   dimension: order_id {

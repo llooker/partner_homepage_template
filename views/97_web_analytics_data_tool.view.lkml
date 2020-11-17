@@ -39,85 +39,85 @@ view: data_tool {
   view_label: "Events"
 
 
-parameter: timeframe_filter {
-  view_label: "Data Tool"
-  allowed_value: { value: "Date" }
-  allowed_value: { value: "Week" }
-  allowed_value: { value: "Month" }
-}
+  parameter: timeframe_filter {
+    view_label: "Data Tool"
+    allowed_value: { value: "Date" }
+    allowed_value: { value: "Week" }
+    allowed_value: { value: "Month" }
+  }
 
-dimension: timeframe {
-  view_label: "Data Tool"
-  sql: CASE
+  dimension: timeframe {
+    view_label: "Data Tool"
+    sql: CASE
           WHEN {% parameter timeframe_filter %} = 'Date' THEN ${event_date}::varchar
           WHEN {% parameter timeframe_filter %} = 'Week' THEN ${event_week}
           WHEN {% parameter timeframe_filter %} = 'Month' THEN ${event_month}
         END ;;
-  label_from_parameter: timeframe_filter
-  drill_fields: [os, browser, event_type]
-}
+    label_from_parameter: timeframe_filter
+    drill_fields: [os, browser, event_type]
+  }
 
 
-parameter: primary_metric_filter {
-  view_label: "Data Tool"
-  allowed_value: { value: "Users" }
-  allowed_value: { value: "Visitors" }
-  allowed_value: { value: "Sessions" }
-  allowed_value: { value: "Orders" }
-  default_value: "Users"
-}
+  parameter: primary_metric_filter {
+    view_label: "Data Tool"
+    allowed_value: { value: "Users" }
+    allowed_value: { value: "Visitors" }
+    allowed_value: { value: "Sessions" }
+    allowed_value: { value: "Orders" }
+    default_value: "Users"
+  }
 
-measure: primary_metric {
-  type: number
-  view_label: "Data Tool"
-  sql: CASE
+  measure: primary_metric {
+    type: number
+    view_label: "Data Tool"
+    sql: CASE
           WHEN {% parameter primary_metric_filter %} = 'Users' THEN ${users.count}
           WHEN {% parameter primary_metric_filter %} = 'Visitors' THEN ${unique_visitors}
           WHEN {% parameter primary_metric_filter %} = 'Sessions' THEN ${sessions.count}
           WHEN {% parameter primary_metric_filter %} = 'Orders' THEN ${sessions.count_purchase}
         END ;;
-  label_from_parameter: primary_metric_filter
-  drill_fields: [detail*]
-}
+    label_from_parameter: primary_metric_filter
+    drill_fields: [detail*]
+  }
 
-parameter: second_metric_filter {
-  view_label: "Data Tool"
-  allowed_value: { value: "Bounces" }
-  allowed_value: { value: "Bounce Rate" }
-  allowed_value: { value: "Conversion Rate" }
-  default_value: "Conversion Rate"
-}
+  parameter: second_metric_filter {
+    view_label: "Data Tool"
+    allowed_value: { value: "Bounces" }
+    allowed_value: { value: "Bounce Rate" }
+    allowed_value: { value: "Conversion Rate" }
+    default_value: "Conversion Rate"
+  }
 
-measure: second_metric {
-  type: number
-  view_label: "Data Tool"
-  sql: CASE
+  measure: second_metric {
+    type: number
+    view_label: "Data Tool"
+    sql: CASE
           WHEN {% parameter second_metric_filter %} = 'Bounces' THEN ${sessions.count_bounce_sessions}
           WHEN {% parameter second_metric_filter %} = 'Bounce Rate' THEN round((100.0 * ${sessions.percent_bounce_sessions}),2)
           WHEN {% parameter second_metric_filter %} = 'Conversion Rate' THEN round((100.0 * ${sessions.conversion_rate}),2)
         END ;;
-  html: {% if metric_name._value contains 'Rate' or metric_name._value contains 'Users'  %}
+    html: {% if metric_name._value contains 'Rate' or metric_name._value contains 'Users'  %}
             {{ linked_value }}{{ format_symbol._value }}
           {% else %}
             {{ format_symbol._value }}{{ linked_value }}
           {% endif %} ;;
-  label_from_parameter: second_metric_filter
-  drill_fields: [detail*]
-}
+    label_from_parameter: second_metric_filter
+    drill_fields: [detail*]
+  }
 
 
-set: detail {
-  fields: [
-    event_date,
-    users.count,
-    unique_visitors,
-    sessions.count,
-    sessions.count_bounce_sessions,
-    sessions.percent_bounce_sessions,
-    sessions.conversion_rate,
-    sessions.orders
-  ]
-}
+  set: detail {
+    fields: [
+      event_date,
+      users.count,
+      unique_visitors,
+      sessions.count,
+      sessions.count_bounce_sessions,
+      sessions.percent_bounce_sessions,
+      sessions.conversion_rate,
+      sessions.orders
+    ]
+  }
 
 
 
@@ -125,25 +125,25 @@ set: detail {
 ################################################################
 # Used for dynamically applying a format to the metric parameter
 ################################################################
-dimension: metric_name {
-  hidden: yes
-  type: string
-  sql: CASE
+  dimension: metric_name {
+    hidden: yes
+    type: string
+    sql: CASE
           WHEN {% parameter second_metric_filter %} = 'Bounces' THEN 'Bounces'
           WHEN {% parameter second_metric_filter %} = 'Bounce Rate' THEN 'Bounce Rate'
           WHEN {% parameter second_metric_filter %} = 'Conversion Rate' THEN 'Conversion Rate'
           WHEN {% parameter second_metric_filter %} = '% New Users' THEN '% New Users'
           ELSE NULL
         END ;;
-}
+  }
 
-dimension: format_symbol {
-  hidden: yes
-  sql:
+  dimension: format_symbol {
+    hidden: yes
+    sql:
         CASE
           WHEN ${metric_name} IN ('Bounce Rate','Conversion Rate','% New Users') THEN '%'
         END ;;
-}
+  }
 
 
 

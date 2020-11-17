@@ -2,7 +2,7 @@ view: trailing_sales_snapshot {
   derived_table: {
 #     sql_trigger_value: select current_date ;;
 
-    sql: with calendar as
+  sql: with calendar as
       (select distinct to_date(created_at) as snapshot_date
       from inventory_items
       -- where dateadd('day',90,created_at)>=current_date
@@ -24,56 +24,56 @@ view: trailing_sales_snapshot {
       group by 1,2
 
  ;;
-  }
+}
 
 #   measure: count {
 #     type: count
 #     drill_fields: [detail*]
 #   }
 
-  dimension: product_id {
-    type: number
-    sql: ${TABLE}.product_id ;;
-  }
+dimension: product_id {
+  type: number
+  sql: ${TABLE}.product_id ;;
+}
 
-  dimension: snapshot_date {
-    type: date
-    sql: ${TABLE}.snapshot_date ;;
-  }
+dimension: snapshot_date {
+  type: date
+  sql: ${TABLE}.snapshot_date ;;
+}
 
-  dimension: trailing_28d_sales {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.trailing_28d_sales ;;
-  }
+dimension: trailing_28d_sales {
+  type: number
+  hidden: yes
+  sql: ${TABLE}.trailing_28d_sales ;;
+}
 
-  measure: sum_trailing_28d_sales {
-    type: sum
-    sql: ${trailing_28d_sales} ;;
-  }
+measure: sum_trailing_28d_sales {
+  type: sum
+  sql: ${trailing_28d_sales} ;;
+}
 
-  measure: sum_trailing_28d_sales_yesterday {
-    type: sum
-    hidden: yes
-    sql: ${trailing_28d_sales} ;;
-    filters: {
-      field: snapshot_date
-      value: "yesterday"
-    }
+measure: sum_trailing_28d_sales_yesterday {
+  type: sum
+  hidden: yes
+  sql: ${trailing_28d_sales} ;;
+  filters: {
+    field: snapshot_date
+    value: "yesterday"
   }
+}
 
 
-  measure: sum_trailing_28d_sales_last_wk {
-    type: sum
-    hidden: yes
-    sql: ${trailing_28d_sales} ;;
-    filters: {
-      field: snapshot_date
-      value: "8 days ago for 1 day"
-    }
+measure: sum_trailing_28d_sales_last_wk {
+  type: sum
+  hidden: yes
+  sql: ${trailing_28d_sales} ;;
+  filters: {
+    field: snapshot_date
+    value: "8 days ago for 1 day"
   }
+}
 
-  set: detail {
-    fields: [product_id, snapshot_date, trailing_28d_sales]
-  }
+set: detail {
+  fields: [product_id, snapshot_date, trailing_28d_sales]
+}
 }

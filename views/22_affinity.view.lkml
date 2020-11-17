@@ -1,47 +1,44 @@
 view: affinity {
   derived_table: {
-    persist_for: "24 hours"  ## Best practice would be to use `datagroup_trigger: ecommerce_etl` but we don't here for snowflake costs
+    datagroup_trigger: ecommerce_etl
     sql: SELECT
-        product_a_id
-        , product_b_id
-        , joint_user_freq
-        , joint_order_freq
-        , top1.prod_freq AS product_a_freq
-        , top2.prod_freq AS product_b_freq
-
-      FROM
-          (
-              SELECT
-                up1.prod_id AS product_a_id
-                , up2.prod_id AS product_b_id
-                , COUNT(*) AS joint_user_freq
-              FROM ${user_order_product.SQL_TABLE_NAME} AS up1
-              LEFT JOIN ${user_order_product.SQL_TABLE_NAME} AS up2
-                ON up1.user_id = up2.user_id
-                AND up1.prod_id <> up2.prod_id
-              GROUP BY product_a_id, product_b_id
-          ) AS juf
-
-      LEFT JOIN
-          (
-              SELECT
-                op1.prod_id AS oproduct_a_id
-                , op2.prod_id AS oproduct_b_id
-                , COUNT(*) AS joint_order_freq
-              FROM ${user_order_product.SQL_TABLE_NAME} op1
-              LEFT JOIN ${user_order_product.SQL_TABLE_NAME} op2
-                ON op1.order_id = op2.order_id
-                AND op1.prod_id <> op2.prod_id
-              GROUP BY oproduct_a_id, oproduct_b_id
-          ) AS jof
-
-        ON jof.oproduct_a_id = juf.product_a_id
-        AND jof.oproduct_b_id = juf.product_b_id
-      LEFT JOIN ${total_order_product.SQL_TABLE_NAME} top1
-        ON top1.prod_id = juf.product_a_id
-      LEFT JOIN ${total_order_product.SQL_TABLE_NAME} top2
-        ON top2.prod_id = juf.product_b_id
-       ;;
+          product_a_id
+          , product_b_id
+          , joint_user_freq
+          , joint_order_freq
+          , top1.prod_freq AS product_a_freq
+          , top2.prod_freq AS product_b_freq
+        FROM
+        (
+        SELECT
+          up1.prod_id AS product_a_id
+          , up2.prod_id AS product_b_id
+          , COUNT(*) AS joint_user_freq
+        FROM ${user_order_product.SQL_TABLE_NAME} AS up1
+          LEFT JOIN ${user_order_product.SQL_TABLE_NAME} AS up2
+            ON up1.user_id = up2.user_id
+            AND up1.prod_id <> up2.prod_id
+          GROUP BY product_a_id, product_b_id
+        ) AS juf
+    LEFT JOIN
+      (
+      SELECT
+        op1.prod_id AS oproduct_a_id
+        , op2.prod_id AS oproduct_b_id
+        , COUNT(*) AS joint_order_freq
+      FROM ${user_order_product.SQL_TABLE_NAME} op1
+        LEFT JOIN ${user_order_product.SQL_TABLE_NAME} op2
+          ON op1.order_id = op2.order_id
+          AND op1.prod_id <> op2.prod_id
+        GROUP BY oproduct_a_id, oproduct_b_id
+      ) AS jof
+      ON jof.oproduct_a_id = juf.product_a_id
+      AND jof.oproduct_b_id = juf.product_b_id
+    LEFT JOIN ${total_order_product.SQL_TABLE_NAME} top1
+      ON top1.prod_id = juf.product_a_id
+    LEFT JOIN ${total_order_product.SQL_TABLE_NAME} top2
+      ON top2.prod_id = juf.product_b_id
+    ;;
   }
 
   measure: count {
@@ -127,16 +124,15 @@ view: affinity {
 #Table that aggregates the products purchased by user and order id
 view: user_order_product {
   derived_table: {
-    persist_for: "24 hours"  ## Best practice would be to use `datagroup_trigger: ecommerce_etl` but we don't here for snowflake costs
-
+    datagroup_trigger: ecommerce_etl
     sql: SELECT
         oi.user_id AS user_id
         , p.id AS prod_id
         , oi.order_id AS order_id
-      FROM order_items oi
-      LEFT JOIN inventory_items ii
+      FROM ecomm.order_items oi
+      LEFT JOIN ecomm.inventory_items ii
         ON oi.inventory_item_id = ii.id
-      LEFT JOIN products p
+      LEFT JOIN ecomm. products p
         ON ii.product_id = p.id
       GROUP BY 1,2,3
        ;;
@@ -167,15 +163,14 @@ view: user_order_product {
 #Table to count the total times a product id has been purchased
 view: total_order_product {
   derived_table: {
-    persist_for: "24 hours"  ## Best practice would be to use `datagroup_trigger: ecommerce_etl` but we don't here for snowflake costs
-
+    datagroup_trigger: ecommerce_etl
     sql: SELECT
         p.id AS prod_id
         , COUNT(*) AS prod_freq
-      FROM order_items oi
-      LEFT JOIN inventory_items
+      FROM ecomm.order_items oi
+      LEFT JOIN ecomm.inventory_items
         ON oi.inventory_item_id = inventory_items.id
-      LEFT JOIN products p
+      LEFT JOIN ecomm.products p
         ON inventory_items.product_id = p.id
       GROUP BY p.id
        ;;

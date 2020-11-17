@@ -1,20 +1,21 @@
-include: "/models/thelook.model.lkml"
+include: "/models/**/thelook.model.lkml"
 view: order_facts {
   derived_table: {
     explore_source: order_items {
-      column: order_id {}
+      column: order_id {field: order_items.order_id_no_actions }
       column: items_in_order { field: order_items.count }
       column: order_amount { field: order_items.total_sale_price }
       column: order_cost { field: inventory_items.total_cost }
       column: user_id {field: order_items.user_id }
       column: created_at {field: order_items.created_raw}
+      column: order_gross_margin {field: order_items.total_gross_margin}
       derived_column: order_sequence_number {
         sql: RANK() OVER (PARTITION BY user_id ORDER BY created_at) ;;
-        }
+      }
     }
-
-    persist_for: "24 hours"  ## Best practice would be to use `datagroup_trigger: ecommerce_etl` but we don't here for snowflake costs
+    datagroup_trigger: ecommerce_etl
   }
+
   dimension: order_id {
     type: number
     hidden: yes
@@ -37,6 +38,11 @@ view: order_facts {
     type: number
     value_format_name: usd
     sql: ${TABLE}.order_cost ;;
+  }
+
+  dimension: order_gross_margin {
+    type: number
+    value_format_name: usd
   }
 
   dimension: order_sequence_number {

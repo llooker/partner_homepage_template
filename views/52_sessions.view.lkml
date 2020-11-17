@@ -1,16 +1,15 @@
 view: sessions {
   derived_table: {
-
-    persist_for: "24 hours"
+    datagroup_trigger: ecommerce_etl
     sql: SELECT
         session_id
-        , MIN(created_at) AS session_start
-        , MAX(created_at) AS session_end
+        , CAST(MIN(created_at) AS TIMESTAMP) AS session_start
+        , CAST(MAX(created_at) AS TIMESTAMP) AS session_end
         , COUNT(*) AS number_of_events_in_session
-        , SUM(CASE WHEN event_type IN ('Category','Brand') THEN 1 END) AS browse_events
-        , SUM(CASE WHEN event_type = 'Product' THEN 1 END) AS product_events
-        , SUM(CASE WHEN event_type = 'Cart' THEN 1 END) AS cart_events
-        , SUM(CASE WHEN event_type = 'Purchase' THEN 1 end) AS purchase_events
+        , SUM(CASE WHEN event_type IN ('Category','Brand') THEN 1 ELSE NULL END) AS browse_events
+        , SUM(CASE WHEN event_type = 'Product' THEN 1 ELSE NULL END) AS product_events
+        , SUM(CASE WHEN event_type = 'Cart' THEN 1 ELSE NULL END) AS cart_events
+        , SUM(CASE WHEN event_type = 'Purchase' THEN 1 ELSE NULL end) AS purchase_events
         , MAX(user_id) AS session_user_id
         , MIN(id) AS landing_event_id
         , MAX(id) AS bounce_event_id
@@ -18,6 +17,7 @@ view: sessions {
       GROUP BY session_id
        ;;
   }
+
 
   #####  Basic Web Info  ########
 
@@ -29,10 +29,12 @@ view: sessions {
   dimension: session_id {
     type: string
     primary_key: yes
+    tags: ["mp_session_id"]
     sql: ${TABLE}.session_id ;;
   }
 
   dimension: session_user_id {
+    tags: ["mp_session_uuid"]
     sql: ${TABLE}.session_user_id ;;
   }
 
@@ -86,12 +88,10 @@ view: sessions {
 
   measure: count_bounce_sessions {
     type: count
-
     filters: {
       field: is_bounce_session
       value: "Yes"
     }
-
     drill_fields: [detail*]
   }
 
@@ -149,23 +149,19 @@ view: sessions {
 
   measure: count_with_cart {
     type: count
-
     filters: {
       field: includes_cart
       value: "Yes"
     }
-
     drill_fields: [detail*]
   }
 
   measure: count_with_purchase {
     type: count
-
     filters: {
       field: includes_purchase
       value: "Yes"
     }
-
     drill_fields: [detail*]
   }
 
@@ -198,13 +194,10 @@ view: sessions {
     view_label: "Funnel View"
     label: "(2) Browse or later"
     type: count
-
     filters: {
       field: furthest_funnel_step
-      value: "(2) Browse,(3) View Product,(4) Add to Cart,(5) Purchase
-      "
+      value: "(2) Browse,(3) View Product,(4) Add to Cart,(5) Purchase"
     }
-
     drill_fields: [detail*]
   }
 
@@ -212,13 +205,10 @@ view: sessions {
     view_label: "Funnel View"
     label: "(3) View Product or later"
     type: count
-
     filters: {
       field: furthest_funnel_step
-      value: "(3) View Product,(4) Add to Cart,(5) Purchase
-      "
+      value: "(3) View Product,(4) Add to Cart,(5) Purchase"
     }
-
     drill_fields: [detail*]
   }
 
@@ -226,13 +216,10 @@ view: sessions {
     view_label: "Funnel View"
     label: "(4) Add to Cart or later"
     type: count
-
     filters: {
       field: furthest_funnel_step
-      value: "(4) Add to Cart,(5) Purchase
-      "
+      value: "(4) Add to Cart,(5) Purchase"
     }
-
     drill_fields: [detail*]
   }
 
@@ -240,13 +227,10 @@ view: sessions {
     view_label: "Funnel View"
     label: "(5) Purchase"
     type: count
-
     filters: {
       field: furthest_funnel_step
-      value: "(5) Purchase
-      "
+      value: "(5) Purchase"
     }
-
     drill_fields: [detail*]
   }
 

@@ -1,8 +1,19 @@
 view: distribution_centers {
+  sql_table_name: distribution_centers ;;
   dimension: location {
     type: location
     sql_latitude: ${TABLE}.latitude ;;
     sql_longitude: ${TABLE}.longitude ;;
+  }
+
+  dimension: latitude {
+    sql: ${TABLE}.latitude ;;
+    hidden: yes
+  }
+
+  dimension: longitude {
+    sql: ${TABLE}.longitude ;;
+    hidden: yes
   }
 
   dimension: id {

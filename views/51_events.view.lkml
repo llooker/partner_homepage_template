@@ -4,6 +4,7 @@ view: events {
   dimension: event_id {
     type: number
     primary_key: yes
+    tags: ["mp_event_id"]
     sql: ${TABLE}.id ;;
   }
 
@@ -79,6 +80,7 @@ view: events {
 
   dimension: event_type {
     sql: ${TABLE}.event_type ;;
+    tags: ["mp_event_name"]
   }
 
   dimension: funnel_step {
@@ -175,10 +177,7 @@ view: events {
   }
 
   set: simple_page_info {
-    fields: [event_id, event_time, event_type,
-      #       - os
-      #       - browser
-      full_page_url, user_id, funnel_step]
+    fields: [event_id, event_time, event_type, full_page_url, user_id, funnel_step]
   }
 
   set: visitors {
