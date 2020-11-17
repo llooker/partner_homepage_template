@@ -13,7 +13,7 @@ TheLook is a simulated e-commerce store that sells clothing for men and women. T
  <strong><a href = "/explore/thelook/order_items" style="text-decoration:underline">Looker's explore section</a></strong> provides an easy-to-use, flexible interface for self-service exploration to answer any question from your data without having to involve IT. Regardless of their level of SQL knowledge, analysts and business users alike have the power and depth of the entire database at their fingertips to easily answer ad-hoc questions and quickly build visualizations, dashbaords, and automated reports. Looker's 100% browser based workflow enables fast and easy collaboration and sharing.
 </p>
 <p style="font-weight: 300">
-<strong><a href = "/projects/welcome_to_looker/files/models/thelook.model.lkml" style="text-decoration:underline">The LookML data model</a></strong> is the backbone of Looker, providing a platform to define key metrics once, in one place, so people from across the organization combine them in any number of ways, anytime.
+<strong><a href = "/projects" style="text-decoration:underline">The LookML data model</a></strong> is the backbone of Looker, providing a platform to define key metrics once, in one place, so people from across the organization combine them in any number of ways, anytime.
 </p>
 
 <h1 style="padding-bottom:0px;color:#76678b;font-weight:500">Connecting to your own data set</h1>
@@ -31,6 +31,8 @@ Looker can connect to any SQL-compliant database for you to build out a demo env
 </p>
 
 
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500"><strong>Next: </h1>
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500"><a href = "/stories/welcome_to_looker/002_lookml_101.md" style="text-decoration:underline">Looker 101 - Developing with LookML</strong><a></h1>
-<h1 style="padding-bottom:0px;color:#76678b;font-weight:500"><a href = "/stories/welcome_to_looker/003_business_analyst_101.md" style="text-decoration:underline">Exploration, Visualizations, and Dashboards</strong><a></h1>
+<h1 style="padding-bottom:0px;color:#76678b;font-weight:500">
+<strong>Next:</strong> </h1>
+<p style="font-weight: 300"><strong><a href = "projects/partner_template/files/documents/002_lookml_101.md" style="text-decoration:underline">Looker 101 - Developing with LookML</a></strong>
+</p>
+<strong><a href = "projects/partner_template/files/documents/003_business_analyst_101.md" style="text-decoration:underline">Exploration, Visualizations, and Dashboards</a></strong>
