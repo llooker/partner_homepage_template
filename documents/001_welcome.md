@@ -33,6 +33,6 @@ Looker can connect to any SQL-compliant database for you to build out a demo env
 
 <h1 style="padding-bottom:0px;color:#76678b;font-weight:500">
 <strong>Next:</strong> </h1>
-<p style="font-weight: 300"><strong><a href = "/documents/002_lookml_101.md" style="text-decoration:underline">Looker 101 - Developing with LookML</a></strong>
+<p style="font-weight: 300"><strong><a href = "/projects/partner_template/files/documents/002_lookml_101.md" style="text-decoration:underline">Looker 101 - Developing with LookML</a></strong>
 </p>
-<strong><a href = "/documents/003_business_analyst_101.md" style="text-decoration:underline">Exploration, Visualizations, and Dashboards</a></strong>
+<strong><a href = "/projects/partner_template/files/documents/003_business_analyst_101.md" style="text-decoration:underline">Exploration, Visualizations, and Dashboards</a></strong>

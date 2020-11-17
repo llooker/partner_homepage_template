@@ -1,6 +1,6 @@
 view: repeat_purchase_facts {
   derived_table: {
-    datagroup_trigger: ecommerce_etl
+    persist_for: "24 hours"  ## Best practice would be to use `datagroup_trigger: ecommerce_etl` but we don't here for snowflake cost
     sql: SELECT
       order_items.order_id as order_id
       , order_items.created_at
