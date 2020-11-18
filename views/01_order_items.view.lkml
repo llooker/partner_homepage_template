@@ -1,5 +1,7 @@
 view: order_items {
-  sql_table_name: order_items ;;
+  sql_table_name: "PUBLIC"."ORDER_ITEMS"
+    ;;
+  drill_fields: [id]
 
   ########## IDs, Foreign Keys, Counts ###########
 

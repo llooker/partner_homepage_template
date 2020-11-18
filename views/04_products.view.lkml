@@ -1,5 +1,7 @@
 view: products {
-  sql_table_name: products ;;
+  sql_table_name: "PUBLIC"."PRODUCTS"
+    ;;
+  drill_fields: [id]
 
   ### DIMENSIONS ###
 
