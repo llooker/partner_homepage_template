@@ -88,10 +88,7 @@ view: sessions {
 
   measure: count_bounce_sessions {
     type: count
-    filters: {
-      field: is_bounce_session
-      value: "Yes"
-    }
+    filters: [is_bounce_session: "Yes"]
     drill_fields: [detail*]
   }
 
@@ -149,19 +146,13 @@ view: sessions {
 
   measure: count_with_cart {
     type: count
-    filters: {
-      field: includes_cart
-      value: "Yes"
-    }
+    filters: [includes_cart: "Yes"]
     drill_fields: [detail*]
   }
 
   measure: count_with_purchase {
     type: count
-    filters: {
-      field: includes_purchase
-      value: "Yes"
-    }
+    filters: [includes_purchase: "Yes"]
     drill_fields: [detail*]
   }
 
@@ -194,10 +185,7 @@ view: sessions {
     view_label: "Funnel View"
     label: "(2) Browse or later"
     type: count
-    filters: {
-      field: furthest_funnel_step
-      value: "(2) Browse,(3) View Product,(4) Add to Cart,(5) Purchase"
-    }
+    filters: [furthest_funnel_step: "(2) Browse,(3) View Product,(4) Add to Cart,(5) Purchase"]
     drill_fields: [detail*]
   }
 
@@ -205,10 +193,7 @@ view: sessions {
     view_label: "Funnel View"
     label: "(3) View Product or later"
     type: count
-    filters: {
-      field: furthest_funnel_step
-      value: "(3) View Product,(4) Add to Cart,(5) Purchase"
-    }
+    filters: [furthest_funnel_step: "(3) View Product,(4) Add to Cart,(5) Purchase"]
     drill_fields: [detail*]
   }
 
@@ -216,10 +201,7 @@ view: sessions {
     view_label: "Funnel View"
     label: "(4) Add to Cart or later"
     type: count
-    filters: {
-      field: furthest_funnel_step
-      value: "(4) Add to Cart,(5) Purchase"
-    }
+    filters: [furthest_funnel_step: "(4) Add to Cart,(5) Purchase"]
     drill_fields: [detail*]
   }
 
@@ -227,10 +209,7 @@ view: sessions {
     view_label: "Funnel View"
     label: "(5) Purchase"
     type: count
-    filters: {
-      field: furthest_funnel_step
-      value: "(5) Purchase"
-    }
+    filters: [furthest_funnel_step: "(5) Purchase"]
     drill_fields: [detail*]
   }
 

@@ -73,11 +73,7 @@ view: inventory_items {
   measure: sold_count {
     type: count
     drill_fields: [detail*]
-
-    filters: {
-      field: is_sold
-      value: "Yes"
-    }
+    filters: [is_sold: "Yes"]
   }
 
   measure: sold_percent {
@@ -106,11 +102,7 @@ view: inventory_items {
   measure: number_on_hand {
     type: count
     drill_fields: [detail*]
-
-    filters: {
-      field: is_sold
-      value: "No"
-    }
+    filters: [is_sold: "No"]
   }
 
   measure: stock_coverage_ratio {

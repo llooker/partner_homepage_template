@@ -1,7 +1,7 @@
 - dashboard: business_pulse
   title: Business Pulse
   layout: newspaper
-  preferred_viewer: dashboards
+  preferred_viewer: dashboards-next
   description: ''
   query_timezone: user_timezone
   embed_style:
@@ -816,7 +816,7 @@
     pivots: [product_viewed.department]
     filters:
       product_viewed.brand: "-NULL"
-    sorts: [sessions.count desc 0, product_viewed.department]
+    sorts: [sessions.count desc, product_viewed.department]
     limit: 10
     column_limit: 50
     row_total: right
@@ -836,17 +836,17 @@
     rows_font_size: '12'
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
+    # show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
-    series_labels:
-      sessions.cart_to_checkout_conversion: Cart Conversion
-    series_cell_visualizations:
-      sessions.count:
-        is_active: true
-        palette:
-          palette_id: google-sequential-0
-          collection_id: google
+    # series_labels:
+    #   sessions.cart_to_checkout_conversion: Cart Conversion
+    # series_cell_visualizations:
+    #   sessions.count:
+    #     is_active: true
+    #     palette:
+    #       palette_id: google-sequential-0
+    #       collection_id: google
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#2196F3",
         font_color: !!null '', color_application: {collection_id: f14810d2-98d7-42df-82d0-bc185a074e42,
           palette_id: 493e0f89-1e28-4f9b-9f49-9cb1e77a0331}, bold: false, italic: false,

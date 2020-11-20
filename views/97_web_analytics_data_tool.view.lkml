@@ -174,10 +174,7 @@ view: sessions_webanalytics {
     label: "Orders"
 #     hidden: yes
     type: count
-    filters: {
-      field: furthest_funnel_step
-      value: "(5) Purchase"
-    }
+    filters: [furthest_funnel_step: "(5) Purchase"]
     drill_fields: [detail*]
   }
 

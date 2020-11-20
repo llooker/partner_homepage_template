@@ -56,10 +56,7 @@ measure: sum_stock_yesterday {
   type: sum
   hidden: yes
   sql: ${number_in_stock} ;;
-  filters: {
-    field: snapshot_date
-    value: "yesterday"
-  }
+  filters: [snapshot_date: "yesterday"]
 }
 
 
@@ -67,10 +64,7 @@ measure: sum_stock_last_wk {
   type: sum
   hidden: yes
   sql: ${number_in_stock} ;;
-  filters: {
-    field: snapshot_date
-    value: "8 days ago for 1 day"
-  }
+  filters: [snapshot_date: "8 days ago for 1 day"]
 }
 
 measure: stock_coverage_ratio_yday {

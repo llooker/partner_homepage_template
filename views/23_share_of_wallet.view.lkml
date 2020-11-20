@@ -53,11 +53,7 @@ view: order_items_share_of_wallet {
     hidden: yes
     sql: ${order_items.sale_price} ;;
     value_format_name: usd
-
-    filters: {
-      field: order_items_share_of_wallet.item_comparison
-      value: "(1)%"
-    }
+    filters: [order_items_share_of_wallet.item_comparison: "(1)%"]
   }
 
   measure: total_sale_price_this_brand {
@@ -66,11 +62,7 @@ view: order_items_share_of_wallet {
     hidden: yes
     value_format_name: usd
     sql: ${order_items.sale_price} ;;
-
-    filters: {
-      field: order_items_share_of_wallet.item_comparison
-      value: "(2)%,(1)%"
-    }
+    filters: [order_items_share_of_wallet.item_comparison: "(2)%,(1)%"]
   }
 
   measure: total_sale_price_brand_v2 {
@@ -79,11 +71,7 @@ view: order_items_share_of_wallet {
     type: sum
     value_format_name: usd
     sql: ${order_items.sale_price} ;;
-
-    filters: {
-      field: order_items_share_of_wallet.brand_comparison
-      value: "(1)%"
-    }
+    filters: [order_items_share_of_wallet.brand_comparison: "(1)%"]
   }
 
   measure: item_share_of_wallet_within_brand {
