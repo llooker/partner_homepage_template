@@ -1,5 +1,7 @@
 view: users {
-  sql_table_name: users ;;
+  sql_table_name: "PUBLIC"."USERS"
+    ;;
+  drill_fields: [id]
   ## Demographics ##
 
   dimension: id {

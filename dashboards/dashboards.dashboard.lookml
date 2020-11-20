@@ -3,16 +3,16 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  query_timezone: user_timezone
+  # query_timezone: user_timezone
   embed_style:
     background_color: "#f7f7f7"
     show_title: true
     title_color: "#3a4245"
     show_filters_bar: true
     tile_text_color: "#3a4245"
-    tile_separator_color: "#bdb7b7"
-    tile_border_radius: 2
-    show_tile_shadow: false
+    # tile_separator_color: "#bdb7b7"
+    # tile_border_radius: 2
+    # show_tile_shadow: false
     text_tile_text_color: "#ffffff"
   elements:
   - title: Number of First Purchasers
@@ -27,7 +27,7 @@
     column_limit: 50
     dynamic_fields: [{table_calculation: goal, label: Goal, expression: '10000', value_format: !!null '',
         value_format_name: decimal_0, _kind_hint: dimension, _type_hint: number}]
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     custom_color_enabled: false
     show_single_value_title: true
     show_comparison: true
@@ -73,7 +73,7 @@
     column_limit: 50
     dynamic_fields: [{table_calculation: date, label: date, expression: now(), value_format: !!null '',
         value_format_name: !!null '', _kind_hint: dimension, is_disabled: true}]
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     custom_color_enabled: false
     show_single_value_title: true
     show_comparison: false
@@ -158,7 +158,7 @@
     sorts: [products.category, order_items.created_date desc]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: true
@@ -237,7 +237,7 @@
     sorts: [events.event_day_of_week]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
@@ -323,7 +323,7 @@
     dynamic_fields: [{table_calculation: pct_cohort_still_active, label: Pct Cohort
           Still Active, expression: "${users.count} / max(${users.count})", value_format: !!null '',
         value_format_name: percent_0, _kind_hint: measure, _type_hint: number}]
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
@@ -394,7 +394,7 @@
     sorts: [order_items.created_year desc 0, order_items.created_month_name]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
@@ -468,7 +468,7 @@
     sorts: [users.gender 0, order_items.total_sale_price desc 0]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     map_plot_mode: points
     heatmap_gridlines: true
     heatmap_gridlines_empty: false
@@ -552,7 +552,7 @@
     sorts: [user_order_facts.lifetime_orders_tier__sort_, users.traffic_source]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
@@ -630,7 +630,7 @@
         desc 0]
     limit: 500
     column_limit: 15
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_value_labels: true
     font_size: 15
     hide_legend: false
@@ -687,7 +687,7 @@
         desc]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -748,7 +748,7 @@
     column_limit: 50
     dynamic_fields: [{table_calculation: percent_change, label: Percent Change, expression: "${order_items.count}/offset(${order_items.count},1)\
           \ - 1", value_format: !!null '', value_format_name: percent_0}]
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
@@ -820,7 +820,7 @@
     limit: 10
     column_limit: 50
     row_total: right
-    query_timezone: user_timezone
+    # query_timezone: user_timezone
     show_view_names: false
     show_row_numbers: false
     transpose: false
@@ -999,16 +999,16 @@
   title: Brand Lookup
   layout: newspaper
   preferred_viewer: dashboards-next
-  query_timezone: user_timezone
+  # query_timezone: user_timezone
   embed_style:
     background_color: "#f6f8fa"
     show_title: true
     title_color: "#3a4245"
     show_filters_bar: true
     tile_text_color: "#3a4245"
-    tile_separator_color: "#faf3f3"
-    tile_border_radius: 5
-    show_tile_shadow: false
+    # tile_separator_color: "#faf3f3"
+    # tile_border_radius: 5
+    # show_tile_shadow: false
     text_tile_text_color: "#556d7a"
   elements:
   - title: Total Orders
@@ -1020,7 +1020,7 @@
     filters: {}
     sorts: [order_items.order_count desc]
     limit: 500
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     font_size: medium
     text_color: black
     listen:
@@ -1040,7 +1040,7 @@
     filters: {}
     sorts: [users.count desc]
     limit: 500
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     font_size: medium
     text_color: black
     note_state: expanded
@@ -1064,7 +1064,7 @@
     sorts: [order_items.average_sale_price desc]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     font_size: medium
     text_color: black
     note_state: collapsed
@@ -1090,7 +1090,7 @@
     sorts: [events.count desc 1, users.traffic_source]
     limit: 20
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_value_labels: true
     font_size: 12
     colors: ["#64518A", "#8D7FB9", "#EA8A2F", "#F2B431", "#2DA5DE", "#57BEBE", "#7F7977",
@@ -1138,7 +1138,7 @@
     sorts: [sessions.count_cart_or_later desc]
     limit: 8
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1217,7 +1217,7 @@
     sorts: [sessions.count desc]
     limit: 15
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: true
     show_row_numbers: true
     transpose: false
@@ -1256,7 +1256,7 @@
     filters: {}
     sorts: [order_items.total_sale_price desc]
     limit: 500
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
@@ -1318,7 +1318,7 @@
     sorts: [order_items.count desc]
     limit: 15
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     show_row_numbers: true
     truncate_column_names: false
@@ -1351,7 +1351,7 @@
     sorts: [user_order_facts.lifetime_orders_tier 0, events.event_hour_of_day]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1419,7 +1419,7 @@
       product_b.brand: '"Levi''s"'
     sorts: [affinity.avg_order_affinity desc]
     limit: 15
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -1510,7 +1510,7 @@
     sorts: [affinity.combined_affinity desc]
     limit: 15
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: true
     show_row_numbers: true
     transpose: false
@@ -1584,7 +1584,7 @@
       order_items.months_since_signup: "<=18"
     sorts: [order_items.months_since_signup]
     limit: 500
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
@@ -1645,7 +1645,7 @@
     limit: 500
     column_limit: 50
     row_total: right
-    query_timezone: user_timezone
+    # query_timezone: user_timezone
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1787,7 +1787,7 @@
     sorts: [users.zip]
     limit: 1
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_null_labels: false
     show_view_names: false
     show_row_numbers: true
@@ -1872,7 +1872,7 @@
       order_items.created_date: 99 years
     sorts: [order_items.count desc]
     limit: 500
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     value_labels: legend
     label_type: labPer
     colors: ["#64518A", "#8D7FB9", "#EA8A2F", "#F2B431", "#2DA5DE", "#57BEBE", "#7F7977",
@@ -1901,7 +1901,7 @@
     fields: [users.zip, users.count]
     sorts: [users.created_month desc, users.zip]
     limit: 1
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     map: usa
     map_projection: ''
     show_view_names: true
@@ -1958,16 +1958,16 @@
   title: Web Analytics Overview
   layout: newspaper
   preferred_viewer: dashboards
-  query_timezone: user_timezone
+  # query_timezone: user_timezone
   embed_style:
     background_color: "#e8f1fa"
     show_title: true
     title_color: "#131414"
     show_filters_bar: true
     tile_text_color: gray
-    tile_separator_color: rgba(0, 0, 0, 0.05)
-    tile_border_radius: 3
-    show_tile_shadow: true
+    # tile_separator_color: rgba(0, 0, 0, 0.05)
+    # tile_border_radius: 3
+    # show_tile_shadow: true
     text_tile_text_color: ''
   elements:
   - title: Total Visitors
@@ -1982,7 +1982,7 @@
     limit: 500
     column_limit: 50
     dynamic_fields: [{table_calculation: change, label: Change, expression: "${events.unique_visitors}-offset(${events.unique_visitors},1)"}]
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     font_size: medium
     value_format: ''
     text_color: black
@@ -2031,7 +2031,7 @@
     filters: {}
     sorts: [orders.total_profit_k desc, order_items.total_sale_price desc]
     limit: 500
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     font_size: medium
     value_format: "$#,###"
     text_color: black
@@ -2058,7 +2058,7 @@
     sorts: [events.count desc]
     limit: 50
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     value_labels: legend
     label_type: labPer
     colors: ["#635189", "#8D7FB9", "#EA8A2F", "#e9b404", "#49cec1", "#a2dcf3", "#1ea8df",
@@ -2203,7 +2203,7 @@
       product_viewed.brand: "-NULL"
     sorts: [events.count desc]
     limit: 10
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     show_row_numbers: true
     show_value_labels: true
@@ -2251,7 +2251,7 @@
     sorts: [sessions.all_sessions desc]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
@@ -2316,7 +2316,7 @@
     filters: {}
     sorts: [events.count desc]
     limit: 1000
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: true
     stacking: ''
     show_value_labels: false
@@ -2374,7 +2374,7 @@
     sorts: [sessions.session_start_date]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -2426,7 +2426,7 @@
     sorts: [sessions.all_sessions desc, sessions.includes_purchase]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: true
     colors: ["#5245ed", "#a2dcf3"]
     show_row_numbers: true
@@ -2527,7 +2527,7 @@
     sorts: [order_items.created_date desc, order_items.status]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     color_palette: Custom
     limit_displayed_rows: false
@@ -2573,7 +2573,7 @@
     sorts: [order_items.days_to_process desc]
     limit: 25
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -2735,7 +2735,7 @@
     sorts: [inventory_items.days_in_inventory_tier]
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     stacking: normal
     show_value_labels: true
     label_density: 25
@@ -2781,7 +2781,7 @@
       order_items.status: Processing
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     color_palette: Custom
     limit_displayed_rows: false
@@ -2823,7 +2823,7 @@
       order_items.status: Shipped
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     color_palette: Custom
     limit_displayed_rows: false
@@ -2865,7 +2865,7 @@
       order_items.status: Processing
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
+    # query_timezone: America/Los_Angeles
     show_view_names: false
     color_palette: Custom
     limit_displayed_rows: false

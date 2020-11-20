@@ -1,5 +1,10 @@
 view: distribution_centers {
-  sql_table_name: distribution_centers ;;
+  sql_table_name: "PUBLIC"."DISTRIBUTION_CENTERS"
+    ;;
+  drill_fields: [id]
+
+  ### DIMENSIONS ###
+
   dimension: location {
     type: location
     sql_latitude: ${TABLE}.latitude ;;
